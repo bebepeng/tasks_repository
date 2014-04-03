@@ -21,25 +21,4 @@ class TasksRepository
     #  list all will list all of the rows in the database
     @tasks.to_a
   end
-
-
 end
-
-
-#require 'sequel'
-#
-#class TasksRepository
-#
-#  def initialize(db)
-#    @db = db
-#    @task_table = @db[:tasks]
-#  end
-#
-#  def create(attributes)
-#    @task_table.insert(attributes)
-#  end
-#
-#  def all
-#    @task_table.to_a
-#  end
-#end
