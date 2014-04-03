@@ -2,14 +2,8 @@ require 'sequel'
 
 class TasksRepository
 
-  def initialize
-    db = Sequel.connect('postgres://gschool_user:password@localhost:5432/tasks_database')
-    db.create_table! :tasks_list do
-      primary_key :id
-      String :name
-      Integer :priority
-    end
-    @tasks = db[:tasks_list]
+  def initialize(tasks)
+   @tasks = tasks
   end
 
   def add(task, priority)
