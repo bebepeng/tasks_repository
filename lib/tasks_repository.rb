@@ -6,9 +6,9 @@ class TasksRepository
    @tasks = tasks
   end
 
-  def add(task, priority)
+  def add(task, completed = false)
     #  add will insert items into the database
-    @tasks.insert(:name => task, :priority => priority)
+    @tasks.insert(:name => task, :completed => completed)
   end
 
   def list_all
