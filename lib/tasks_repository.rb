@@ -18,6 +18,10 @@ class TasksRepository
     @tasks.where(:name => task).delete
   end
 
+  def list(task)
+    @tasks.where(:name => task).to_a
+  end
+
   def list_all
     @tasks.to_a
   end
