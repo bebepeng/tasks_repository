@@ -18,20 +18,20 @@ describe TasksRepository do
   it "adds task items to a database" do
     @list_of_tasks.add('Task 3')
     expect(@list_of_tasks.list_all).to eq [{id: 1, name: 'Task 1', completed: false},
-                                          {id: 2, name: 'Task 2', completed: false},
-                                          {id: 3, name: 'Task 3', completed: false}]
-  end
-
-  it "deletes task itmes in a database" do
-    @list_of_tasks.delete('Task 1')
-    expect(@list_of_tasks.list_all).to eq [{id: 2, name: 'Task 2', completed: false}]
+                                           {id: 2, name: 'Task 2', completed: false},
+                                           {id: 3, name: 'Task 3', completed: false}]
   end
 
   it "edits task itmes in a database" do
     @list_of_tasks.edit('Task 1', {:name => 'Task new', :completed => true})
     @list_of_tasks.edit('Task 2', {:completed => true})
     expect(@list_of_tasks.list_all).to eq [{id: 1, name: 'Task new', completed: true},
-                                          {id: 2, name: 'Task 2', completed: true}]
+                                           {id: 2, name: 'Task 2', completed: true}]
+  end
+
+  it "deletes task itmes in a database" do
+    @list_of_tasks.delete('Task 1')
+    expect(@list_of_tasks.list_all).to eq [{id: 2, name: 'Task 2', completed: false}]
   end
 
   it "searches tasks items by id" do
