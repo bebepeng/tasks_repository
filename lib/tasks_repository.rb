@@ -7,12 +7,14 @@ class TasksRepository
   end
 
   def add(task, completed = false)
-    #  add will insert items into the database
     @tasks.insert(:name => task, :completed => completed)
   end
 
+  def delete(task)
+    @tasks.where(:name => task).delete
+  end
+
   def list_all
-    #  list all will list all of the rows in the database
     @tasks.to_a
   end
 end
