@@ -22,6 +22,10 @@ class TasksRepository
     @tasks.where(:name => task).to_a
   end
 
+  def list_tasks
+    @tasks.select(:name).to_a
+  end
+
   def list_all
     @tasks.to_a
   end
