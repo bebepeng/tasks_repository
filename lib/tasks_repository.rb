@@ -3,11 +3,15 @@ require 'sequel'
 class TasksRepository
 
   def initialize(tasks)
-   @tasks = tasks
+    @tasks = tasks
   end
 
   def add(task, completed = false)
     @tasks.insert(:name => task, :completed => completed)
+  end
+
+  def edit(task, changes)
+    @tasks.where(:name => task).update(changes)
   end
 
   def delete(task)

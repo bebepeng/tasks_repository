@@ -29,4 +29,14 @@ describe TasksRepository do
     list_of_tasks.delete('Task 1')
     expect(list_of_tasks.list_all).to eq [{name: 'Task 2', completed: false}]
   end
+
+  it "edits task itmes in a database" do
+    list_of_tasks = TasksRepository.new(@tasks)
+    list_of_tasks.add('Task 1')
+    list_of_tasks.add('Task 2')
+    list_of_tasks.edit('Task 1', {:name => 'Task new' , :completed => true})
+    list_of_tasks.edit('Task 2', {:completed => true})
+    expect(list_of_tasks.list_all).to eq [{name: 'Task new', completed: true},
+                                          {name: 'Task 2', completed: true}]
+  end
 end
